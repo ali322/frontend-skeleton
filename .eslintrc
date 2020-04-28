@@ -1,0 +1,18 @@
+{
+  "root": true,
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": [
+    "standard"
+  ],
+  "rules": {
+    "space-before-function-paren": "off",
+    "no-unused-vars": "off"
+  }
+}
