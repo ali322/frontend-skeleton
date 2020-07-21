@@ -15,7 +15,15 @@ exports.urlLoaderOptions = (isProd = false, catalog = 'image') => {
 }
 
 exports.cssLoaders = (isProd = false, preprocessor = '') => {
-  const loaders = ['style-loader', 'css-loader', 'resolve-url-loader']
+  const loaders = ['style-loader', 'css-loader', {
+    loader: 'postcss-loader',
+    options: {
+      ident: 'postcss',
+      plugins: loader => [
+        require('autoprefixer')
+      ]
+    }
+  }, 'resolve-url-loader']
   if (preprocessor) {
     loaders.push({
       loader: `${preprocessor}-loader`,
