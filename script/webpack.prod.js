@@ -5,6 +5,7 @@ const baseConf = require('./webpack.base')
 const { resolve } = require('./util')
 const { cesiumBase, entryOfHTML, outputOfHtml } = require('./constant')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 const InjectHTMLPlugin = require('inject-html-webpack-plugin')
 
 module.exports = merge(baseConf, {
@@ -21,7 +22,7 @@ module.exports = merge(baseConf, {
   },
   plugins: [
     new MiniCSSExtractPlugin({ filename: '[name].css' }),
-    new CopywebpackPlugin([{ from: 'static', to: 'static' }]),
+    new CopyPlugin([{ from: 'static', to: 'static' }]),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
